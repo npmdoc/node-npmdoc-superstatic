@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "superstatic",
-    "description": "api documentation for [superstatic (v4.0.3)](https://github.com/firebase/superstatic#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-superstatic.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-superstatic) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-superstatic.svg)](https://travis-ci.org/npmdoc/node-npmdoc-superstatic)",
+    "description": "#### basic api documentation for  [superstatic (v4.0.3)](https://github.com/firebase/superstatic#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-superstatic.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-superstatic) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-superstatic.svg)](https://travis-ci.org/npmdoc/node-npmdoc-superstatic)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "superstatic": "*",
