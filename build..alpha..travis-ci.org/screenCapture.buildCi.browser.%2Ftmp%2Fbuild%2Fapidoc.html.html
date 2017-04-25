@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/firebase/superstatic#readme"
-
-    >superstatic (v4.0.3)</a>
+    <a href="https://github.com/firebase/superstatic#readme">superstatic (v4.0.3)</a>
 </h1>
 <h4>A static file server for fancy apps</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.superstatic">module superstatic</a><ol>
 
@@ -102,14 +95,14 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">superstatic = function (spec) {
   spec = _.assign({
-    stack: &#x27;default&#x27;
+    stack: 'default'
   }, spec);
 
-  if (!_.has(spec, &#x27;fallthrough&#x27;)) {
+  if (!_.has(spec, 'fallthrough')) {
     spec.fallthrough = true;
   }
 
-  if (_.isString(spec.stack) &#x26;&#x26; _.has(superstatic.stacks, spec.stack)) {
+  if (_.isString(spec.stack) &amp;&amp; _.has(superstatic.stacks, spec.stack)) {
     spec.stack = superstatic.stacks[spec.stack];
   }
 
@@ -118,7 +111,7 @@
 
   // Load data
   var config = spec.config = loadConfigFile(spec.config);
-  config.errorPage = config.errorPage || &#x27;/404.html&#x27;;
+  config.errorPage = config.errorPage || '/404.html';
 
   // Set up provider
   var provider = spec.provider ? promiseback(spec.provider, 2) : fsProvider(_.extend({
@@ -178,7 +171,7 @@
 
   // Console output for network requests
   if (spec.debug) {
-    app.use(networkLogger(&#x27;combined&#x27;));
+    app.use(networkLogger('combined'));
   }
 
   return app;
@@ -197,3 +190,4 @@
     ]
 </div>
 </div>
+</body></html>

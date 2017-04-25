@@ -63,9 +63,9 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder">
-            function <span class="apidocSignatureSpan">superstatic.</span>responder
-            <span class="apidocSignatureSpan">(req, res, options)</span>
+            <a class="apidocElementLiA" href="#apidoc.element.superstatic.superstatic">
+            function <span class="apidocSignatureSpan"></span>superstatic
+            <span class="apidocSignatureSpan">(spec)</span>
             </a>
 
         </li>
@@ -81,120 +81,7 @@
 
         <li>
 
-            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">superstatic.</span>responder.prototype</span>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">superstatic.</span>stacks</span>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.superstatic.responder">module superstatic.responder</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.responder">
-            function <span class="apidocSignatureSpan">superstatic.</span>responder
-            <span class="apidocSignatureSpan">(req, res, options)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.superstatic.responder.prototype">module superstatic.responder.prototype</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype._handle">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>_handle
-            <span class="apidocSignatureSpan">(item)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handle">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handle
-            <span class="apidocSignatureSpan">(item, next)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handleData">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleData
-            <span class="apidocSignatureSpan">(data)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handleError">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleError
-            <span class="apidocSignatureSpan">(err)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handleFile">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleFile
-            <span class="apidocSignatureSpan">(file)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handleFileStream">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleFileStream
-            <span class="apidocSignatureSpan">(file, result)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handleNotModified">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleNotModified
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handleRedirect">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleRedirect
-            <span class="apidocSignatureSpan">(redirect)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.handleStack">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleStack
-            <span class="apidocSignatureSpan">(stack)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.superstatic.responder.prototype.isNotModified">
-            function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>isNotModified
-            <span class="apidocSignatureSpan">(stats)</span>
-            </a>
 
         </li>
 
@@ -207,18 +94,56 @@
 
 
     <h2>
-        <a href="#apidoc.element.superstatic.responder" id="apidoc.element.superstatic.responder">
-        function <span class="apidocSignatureSpan">superstatic.</span>responder
-        <span class="apidocSignatureSpan">(req, res, options)</span>
+        <a href="#apidoc.element.superstatic.superstatic" id="apidoc.element.superstatic.superstatic">
+        function <span class="apidocSignatureSpan"></span>superstatic
+        <span class="apidocSignatureSpan">(spec)</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">responder = function (req, res, options) {
-  this.req = req;
-  this.res = res;
-  this.provider = options.provider;
-  this.config = options.config || {};
-  this.gzip = options.gzip;
+    <li>description and source-code<pre class="apidocCodePre">superstatic = function (spec) {
+  spec = _.assign({
+    stack: &#x27;default&#x27;
+  }, spec);
+
+  if (!_.has(spec, &#x27;fallthrough&#x27;)) {
+    spec.fallthrough = true;
+  }
+
+  if (_.isString(spec.stack) &#x26;&#x26; _.has(superstatic.stacks, spec.stack)) {
+    spec.stack = superstatic.stacks[spec.stack];
+  }
+
+  var router = makerouter();
+  var cwd = spec.cwd || CWD;
+
+  // Load data
+  var config = spec.config = loadConfigFile(spec.config);
+  config.errorPage = config.errorPage || &#x27;/404.html&#x27;;
+
+  // Set up provider
+  var provider = spec.provider ? promiseback(spec.provider, 2) : fsProvider(_.extend({
+    cwd: cwd // default current working directory
+  }, config));
+
+  // Setup helpers
+  router.use(function(req, res, next) {
+    res.superstatic = new Responder(req, res, {
+      provider: provider,
+      config: config,
+      gzip: spec.gzip
+    });
+
+    next();
+  });
+
+  router.use(activator(spec, provider));
+
+  // Handle not found pages
+  if (!spec.fallthrough) {
+    router.use(notFound(spec));
+  }
+
+  return router;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -262,419 +187,6 @@
     </ul>
 
 
-
-
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.superstatic.responder" id="apidoc.module.superstatic.responder">module superstatic.responder</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.responder" id="apidoc.element.superstatic.responder.responder">
-        function <span class="apidocSignatureSpan">superstatic.</span>responder
-        <span class="apidocSignatureSpan">(req, res, options)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">responder = function (req, res, options) {
-  this.req = req;
-  this.res = res;
-  this.provider = options.provider;
-  this.config = options.config || {};
-  this.gzip = options.gzip;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.superstatic.responder.prototype" id="apidoc.module.superstatic.responder.prototype">module superstatic.responder.prototype</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype._handle" id="apidoc.element.superstatic.responder.prototype._handle">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>_handle
-        <span class="apidocSignatureSpan">(item)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">_handle = function (item) {
-  if (_.isArray(item)) {
-    return this.handleStack(item);
-  } else if (_.isString(item)) {
-    return this.handleFile({file: item});
-  } else if (_.isObject(item)) {
-    if (item.file) {
-      return this.handleFile(item);
-    } else if (item.redirect) {
-      return this.handleRedirect(item);
-    } else if (item.data) {
-      return this.handleData(item);
-    }
-  }
-
-  return RSVP.reject(new Error(JSON.stringify(item) + &#x27; is not a recognized responder directive&#x27;));
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-}
-
-return false;
-};
-
-Responder.prototype.handle = function(item, next) {
-var self = this;
-return this.<span class="apidocCodeKeywordSpan">_handle</span>(item).then(function(responded) {
-  if (!responded &#x26;&#x26; next) {
-    next();
-  }
-  return responded;
-}).catch(function(err) {
-  return self.handleError(err);
-});
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handle" id="apidoc.element.superstatic.responder.prototype.handle">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handle
-        <span class="apidocSignatureSpan">(item, next)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handle = function (item, next) {
-  var self = this;
-  return this._handle(item).then(function(responded) {
-    if (!responded &#x26;&#x26; next) {
-      next();
-    }
-    return responded;
-  }).catch(function(err) {
-    return self.handleError(err);
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handleData" id="apidoc.element.superstatic.responder.prototype.handleData">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleData
-        <span class="apidocSignatureSpan">(data)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handleData = function (data) {
-  this.res.statusCode = data.status || 200;
-  this.res.setHeader(&#x27;Content-Type&#x27;, data.contentType || &#x27;text/html; charset=utf-8&#x27;);
-  this.res.end(data.data);
-  return RSVP.resolve(true);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-    return this.handleFile({file: item});
-  } else if (_.isObject(item)) {
-    if (item.file) {
-      return this.handleFile(item);
-    } else if (item.redirect) {
-      return this.handleRedirect(item);
-    } else if (item.data) {
-      return this.<span class="apidocCodeKeywordSpan">handleData</span>(item);
-    }
-  }
-
-  return RSVP.reject(new Error(JSON.stringify(item) + &#x27; is not a recognized responder directive&#x27;));
-};
-
-Responder.prototype.handleError = function(err) {
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handleError" id="apidoc.element.superstatic.responder.prototype.handleError">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleError
-        <span class="apidocSignatureSpan">(err)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handleError = function (err) {
-  this.res.statusCode = 500;
-  console.log(err.stack);
-  this.res.end(&#x27;Unexpected error occurred.&#x27;);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-var self = this;
-return this._handle(item).then(function(responded) {
-  if (!responded &#x26;&#x26; next) {
-    next();
-  }
-  return responded;
-}).catch(function(err) {
-  return self.<span class="apidocCodeKeywordSpan">handleError</span>(err);
-});
-};
-
-Responder.prototype._handle = function(item) {
-if (_.isArray(item)) {
-  return this.handleStack(item);
-} else if (_.isString(item)) {
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handleFile" id="apidoc.element.superstatic.responder.prototype.handleFile">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleFile
-        <span class="apidocSignatureSpan">(file)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handleFile = function (file) {
-  var self = this;
-  return this.provider(this.req, file.file).then(function(result) {
-    if (!result) {
-      return false;
-    }
-
-    if (self.isNotModified(result)) {
-      return self.handleNotModified(result);
-    }
-
-    return self.handleFileStream(file, result);
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-});
-};
-
-Responder.prototype._handle = function(item) {
-if (_.isArray(item)) {
-  return this.handleStack(item);
-} else if (_.isString(item)) {
-  return this.<span class="apidocCodeKeywordSpan">handleFile</span>({file: item});
-} else if (_.isObject(item)) {
-  if (item.file) {
-    return this.handleFile(item);
-  } else if (item.redirect) {
-    return this.handleRedirect(item);
-  } else if (item.data) {
-    return this.handleData(item);
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handleFileStream" id="apidoc.element.superstatic.responder.prototype.handleFileStream">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleFileStream
-        <span class="apidocSignatureSpan">(file, result)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handleFileStream = function (file, result) {
-  var self = this;
-
-  this.streamedFile = file;
-  this.res.statusCode = file.status || 200;
-  if (this.res.statusCode === 200 &#x26;&#x26; file.file === this.config.errorPage) {
-    this.res.statusCode = 404;
-  }
-  this.res.setHeader(&#x27;Content-Type&#x27;, result.contentType || mime.contentType(path.extname(file.file)));
-  if (result.size) { this.res.setHeader(&#x27;Content-Length&#x27;, result.size); }
-  if (result.etag) { this.res.setHeader(&#x27;ETag&#x27;, result.etag); }
-  if (result.modified) {
-    this.res.setHeader(&#x27;Last-Modified&#x27;, new Date(result.modified).toUTCString());
-  }
-  if (this.gzip) {
-    compress(this.req, this.res, function() {
-      result.stream.pipe(self.res);
-    });
-  } else {
-    result.stream.pipe(self.res);
-  }
-
-  return awaitFinished(this.res).then(function() {
-    destroy(result.stream);
-    return true;
-  });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-    return false;
-  }
-
-  if (self.isNotModified(result)) {
-    return self.handleNotModified(result);
-  }
-
-  return self.<span class="apidocCodeKeywordSpan">handleFileStream</span>(file, result);
-});
-};
-
-Responder.prototype.handleFileStream = function(file, result) {
-var self = this;
-
-this.streamedFile = file;
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handleNotModified" id="apidoc.element.superstatic.responder.prototype.handleNotModified">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleNotModified
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handleNotModified = function () {
-  this.res.statusCode = 304;
-  this.res.removeHeader(&#x27;Content-Type&#x27;);
-  this.res.removeHeader(&#x27;Content-Length&#x27;);
-  this.res.removeHeader(&#x27;Transfer-Encoding&#x27;);
-  this.res.end();
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-  var self = this;
-  return this.provider(this.req, file.file).then(function(result) {
-    if (!result) {
-      return false;
-    }
-
-    if (self.isNotModified(result)) {
-      return self.<span class="apidocCodeKeywordSpan">handleNotModified</span>(result);
-    }
-
-    return self.handleFileStream(file, result);
-  });
-};
-
-Responder.prototype.handleFileStream = function(file, result) {
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handleRedirect" id="apidoc.element.superstatic.responder.prototype.handleRedirect">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleRedirect
-        <span class="apidocSignatureSpan">(redirect)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handleRedirect = function (redirect) {
-  this.res.statusCode = redirect.status || 301;
-  this.res.setHeader(&#x27;Location&#x27;, redirect.redirect);
-  this.res.setHeader(&#x27;Content-Type&#x27;, &#x27;text/html; charset=utf-8&#x27;);
-  this.res.end(&#x27;Redirecting to &#x27; + redirect.redirect);
-  return RSVP.resolve(true);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-    return this.handleStack(item);
-  } else if (_.isString(item)) {
-    return this.handleFile({file: item});
-  } else if (_.isObject(item)) {
-    if (item.file) {
-      return this.handleFile(item);
-    } else if (item.redirect) {
-      return this.<span class="apidocCodeKeywordSpan">handleRedirect</span>(item);
-    } else if (item.data) {
-      return this.handleData(item);
-    }
-  }
-
-  return RSVP.reject(new Error(JSON.stringify(item) + &#x27; is not a recognized responder directive&#x27;));
-};
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.handleStack" id="apidoc.element.superstatic.responder.prototype.handleStack">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>handleStack
-        <span class="apidocSignatureSpan">(stack)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">handleStack = function (stack) {
-  var self = this;
-  if (stack.length) {
-    return this._handle(stack.shift()).then(function(responded) {
-      return responded ? true : self.handleStack(stack);
-    });
-  }
-
-  return RSVP.resolve(false);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-}).catch(function(err) {
-  return self.handleError(err);
-});
-};
-
-Responder.prototype._handle = function(item) {
-if (_.isArray(item)) {
-  return this.<span class="apidocCodeKeywordSpan">handleStack</span>(item);
-} else if (_.isString(item)) {
-  return this.handleFile({file: item});
-} else if (_.isObject(item)) {
-  if (item.file) {
-    return this.handleFile(item);
-  } else if (item.redirect) {
-    return this.handleRedirect(item);
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.superstatic.responder.prototype.isNotModified" id="apidoc.element.superstatic.responder.prototype.isNotModified">
-        function <span class="apidocSignatureSpan">superstatic.responder.prototype.</span>isNotModified
-        <span class="apidocSignatureSpan">(stats)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">isNotModified = function (stats) {
-  if (stats.etag &#x26;&#x26; stats.etag === this.req.headers[&#x27;if-none-match&#x27;]) {
-    return true;
-  }
-
-  var reqModified = this.req.headers[&#x27;if-modified-since&#x27;];
-  if (reqModified) {
-    reqModified = new Date(reqModified).getTime();
-  }
-  if (stats.modified &#x26;&#x26; reqModified &#x26;&#x26; stats.modified &#x3c; reqModified) {
-    return true;
-  }
-
-  return false;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-Responder.prototype.handleFile = function(file) {
-  var self = this;
-  return this.provider(this.req, file.file).then(function(result) {
-    if (!result) {
-      return false;
-    }
-
-    if (self.<span class="apidocCodeKeywordSpan">isNotModified</span>(result)) {
-      return self.handleNotModified(result);
-    }
-
-    return self.handleFileStream(file, result);
-  });
-};
-...</pre></li>
-    </ul>
 
 
 </div>
